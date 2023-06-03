@@ -40,7 +40,9 @@ require("./schema");
 const User = mongoose.model("userInfo");
 
 app.post("/register", async (req, res) => {
+    
     //console.log(req.body);
+
     const { name, mail, mob } = req.body;
 
     try {
