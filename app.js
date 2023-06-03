@@ -11,7 +11,7 @@ mongoose
     })
     .then(() =>
         console.log("connteced to database"))
-    .catch((e) =>  console.log(e));
+    .catch((e) => console.log(e));
 
 
 app.listen(5001, () => {
@@ -29,6 +29,28 @@ app.post("/post", async (req, res) => {
         else {
             res.send({ status: "User not found" });
         }
+    } catch (error) {
+        res.send({ status: "Something went wrong" })
+    }
+})
+
+require("./schema");
+
+
+const User = mongoose.model("userInfo");
+
+app.post("/register", async (req, res) => {
+    //console.log(req.body);
+    const { name, mail, mob } = req.body;
+
+    try {
+        await User.create({
+            uname: req.body.uname,
+            email: req.body.email,
+            phoneno: req.body.phoneno
+        });
+        console.log( req.body.uname);
+        res.send({ status: "Ok" });
     } catch (error) {
         res.send({ status: "Something went wrong" })
     }
