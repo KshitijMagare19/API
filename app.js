@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json());
 
-const mongoURL = "mongodb+srv://kshitij:kshitij@cluster0.31yk3iq.mongodb.net/?retryWrites=true&w=majority";
+const mongoURL = "mongoAtalslink"; //copy from database connect application
 
 mongoose
     .connect(mongoURL, {
